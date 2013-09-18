@@ -9,4 +9,5 @@ body {
   width: 200px;
   height: 85px;
   background: white url(/assets/img/logo_md.png) center no-repeat;
-  text-indent: -9999px; }
+  text-indent: -9999px;
+  color: #f06714; }

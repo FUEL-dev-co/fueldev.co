@@ -1,3 +1,3 @@
 
 
-var FuelCo = {}
+var FuelCo = {};
