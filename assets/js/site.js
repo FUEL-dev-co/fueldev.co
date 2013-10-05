@@ -1,15 +1,41 @@
+var FuelCo = window.FuelCo || {};
 
+FuelCo = {
 
-var FuelCo = {
-
-    'config' : function(){
+    config : function(){
 
     },
 
-    'init' : function(){
-        $('.logo').addClass('animated fadeInDown');
-    }
+    init : function(){
 
+        FuelCo.$fuelBtn = $('.logo');
+
+        FuelCo.config();
+        FuelCo.bindings();
+    },
+
+    bindings : function(){
+
+        FuelCo.$fuelBtn.on('click', function(e){FuelCo.tearOpen(e)});
+
+    },
+
+    tearOpen : function(e){
+        e.preventDefault();
+        $('.lower-wrap').animate(
+            {
+                top : 400
+            },
+            {
+                specialEasing: {
+                    duration: 200,
+                    easing: "easeOutBounce"
+                }
+            }
+        );
+        return false;
+
+    }
 };
 
 
@@ -17,6 +43,6 @@ var FuelCo = {
 
 $(function(){
 
-   FuelCo.init();
+    FuelCo.init();
 
 });
