@@ -9,6 +9,7 @@ FuelCo = {
     init : function(){
 
         FuelCo.$fuelBtn = $('.logo');
+        FuelCo.$tornOpen = false;
 
         FuelCo.config();
         FuelCo.bindings();
@@ -22,6 +23,10 @@ FuelCo = {
 
     tearOpen : function(e){
         e.preventDefault();
+        if (FuelCo.$tornOpen === true)
+        {
+            return;
+        }
         $('.lower-wrap').animate(
             {
                 top : 400
@@ -30,11 +35,31 @@ FuelCo = {
                 specialEasing: {
                     duration: 200,
                     easing: "easeOutBounce"
+                },
+                complete : function(){
+                    FuelCo.$tornOpen = true;
                 }
             }
         );
         return false;
+    },
 
+    tearClose : function(e){
+
+        $('.lower-wrap').animate(
+            {
+                top : 0
+            },
+            {
+                specialEasing: {
+                    duration: 200,
+                    easing: "easeOutBounce"
+                },
+                complete : function(){
+                    FuelCo.$tornOpen = false;
+                }
+            }
+        );
     }
 };
 
